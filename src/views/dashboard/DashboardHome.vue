@@ -12,6 +12,7 @@
             </v-col>
             <v-col cols="6">
               <v-card
+                id="v-step-0"
                 height="150px"
                 class="rounded-lg text-center cursor-pointer"
               >
@@ -28,7 +29,7 @@
             <v-col cols="6">
               <v-card
                 height="150px"
-                class="rounded-lg text-center cursor-pointer"
+                class="rounded-lg text-center cursor-pointer v-step-1"
               >
                 <router-link :to="'/dashboard/fund-wallet'">
                   <div>
@@ -83,7 +84,7 @@
                   >
                 </UpcomingTrips>
               </v-col>
-              <v-col>
+              <v-col data-tour-step="2">
                 <VectorMap />
               </v-col>
             </v-flex>
@@ -91,6 +92,7 @@
         </v-container>
       </div>
     </v-container>
+    <v-tour name="myTour" :steps="steps"></v-tour>
   </v-main>
 </template>
 
@@ -105,8 +107,37 @@ export default {
     PopularPlacesSlider,
   },
   data() {
-    return {};
+    return {
+         steps: [
+          {
+            target: '#v-step-0',
+            header: {
+              title: 'Plan Trip',
+            },
+            content: `Click here to plan a solo trip or with family and friends`
+          },
+          { 
+            header: {
+              title: 'Fund Wallet',
+            },
+            target: '.v-step-1',
+            content: 'Add funds to your wallet or setup up a schedule to save up for that big trip you\'ve always planned for'
+          },
+          {
+            target: '[data-tour-step="2"]',
+            // You can use HTML tags. Even emojis too 😏
+            content: 'Here\'s a map showing all of your travels as you go on amazing journies to amazing places.<br> Click on each point to relieve memories from each trip &#127776;',
+            params: {
+              // This sets the placement of the popup
+              placement: 'top'
+            }
+          }
+        ]
+    };
   },
+  mounted: function () {
+    this.$tours['myTour'].start()
+  }
 };
 </script>
 
@@ -118,9 +149,7 @@ export default {
 .v-card > :first-child:not(.v-btn):not(.v-chip) {
   border-radius: 100%;
 }
-/* * {
-  outline: 1px solid red;
-} */
+
 @media only screen and (min-width: 1024px) {
   .left-side,
   .right-side {
