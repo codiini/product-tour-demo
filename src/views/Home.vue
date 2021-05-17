@@ -1,29 +1,15 @@
 <template>
   <div class="home">
-    <Hero />
-    <v-container>
-      <FlightDeals />
-      <UniquePlaces />
-      <Testimonials />
-    </v-container>
-    <Footer />
+    
   </div>
 </template>
 
 <script>
-import Hero from "@/components/landing-page/Hero";
-import FlightDeals from "@/components/landing-page/FlightDeals";
-import UniquePlaces from "@/components/landing-page/UniquePlaces";
-import Testimonials from "@/components/landing-page/Testimonials";
-import Footer from "../components/landing-page/Footer.vue";
+
 export default {
   name: "Home",
   components: {
-    Hero,
-    FlightDeals,
-    UniquePlaces,
-    Testimonials,
-    Footer,
+
   },
 };
 </script>

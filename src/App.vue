@@ -20,11 +20,7 @@ export default {
   font-family: "Open Sans", sans-serif;
 }
 #map svg {
-  /* border: 1px solid red; */
   width: 100%;
   max-height: calc(100% - 75px);
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 </style>

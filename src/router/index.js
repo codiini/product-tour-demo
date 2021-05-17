@@ -1,7 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import SignIn from "../views/SignIn.vue";
 
 Vue.use(VueRouter);
 function loadDashboard(view) {
@@ -12,15 +10,10 @@ function loadDashboard(view) {
 }
 
 const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/sign-in",
-    name: "Sign",
-    component: SignIn,
+  { 
+    path: '/',
+    redirect: { name: 'DashboardHome' }
+
   },
   {
     path: "/dashboard",
